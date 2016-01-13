@@ -8,33 +8,12 @@ class ArticlesControllerTest < ActionController::TestCase
   def setup
     @one = articles(:one)
     @two = articles(:two)
-    @temp = Article.new(title: 'title', text: 'text')
   end
 
   def response_and_render(routes_name, **opt)
     get routes_name.to_sym, id: opt[:id]
     assert_response :success
     assert_template routes_name.to_sym
-  end
-
-  test "title should be present" do
-    @temp.title = '   '
-    assert_not @temp.valid?
-  end
-
-  test "text should be present" do
-    @temp.text = '   '
-    assert_not @temp.valid?
-  end
-
-  test "title should not too long" do
-    @temp.title = 'a' * 65
-    assert_not @temp.valid?
-  end
-
-  test "text should not too long" do
-    @temp.text = 'a' * 65536
-    assert_not @temp.valid?
   end
 
   test "index should response and render template" do
