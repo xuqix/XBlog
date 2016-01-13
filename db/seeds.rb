@@ -5,3 +5,10 @@
 #
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
+
+#articles:
+
+10.times do |n|
+  Article.create!(title: "i am the #{n+1}th article",
+                  text: "this is text for #{n+1}th article")
+end
