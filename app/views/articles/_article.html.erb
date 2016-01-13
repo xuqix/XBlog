@@ -1,4 +1,20 @@
+<% if defined?(simple) && simple %>
+
 <li><%= link_to article.title, article_path(article) %> --- <%= article.text[0,20] %></li>
 <td><%= link_to 'Edit', edit_article_path(article) %></td>
 <td><%= link_to 'Destroy', article_path(article),
 method: :delete, data: { confirm: 'Are you sure?' } %></td>
+
+<% else %>
+
+<p>
+  <strong>Title:</strong>
+  <%= @article.title %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @article.text %>
+</p>
+
+<% end %>

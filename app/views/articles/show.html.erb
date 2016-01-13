@@ -1,12 +1,27 @@
-<p>
-  <strong>Title:</strong>
-  <%= @article.title %>
-</p>
+<h2>Article:</h2>
+<%= render @article %>
 
-<p>
-  <strong>Text:</strong>
-  <%= @article.text %>
-</p>
+<h2>Comments:</h2>
+<%= render @comments %>
+
+<h2>Add a comment:</h2>
+<%= form_for([@article, @article.comments.build]) do |f| %>
+  <p>
+    <%= f.label :commenter %><br>
+    <%= f.text_field :commenter %>
+  </p>
+  <p>
+    <%= f.label :email %><br>
+    <%= f.text_field :email %>
+  </p>
+  <p>
+    <%= f.label :body %><br>
+    <%= f.text_area :content %>
+  </p>
+  <p>
+    <%= f.submit "comment it!" %>
+  </p>
+<% end %>
 
 <%= link_to 'Edit Article', edit_article_path(@article) %> |
 <%= link_to 'Back', articles_path %>

@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  commenter: alan
+  email: alan@gmail.com
+  content: comment
+  article: one
+
+two:
+  commenter: alice
+  email: alice@gmail.com
+  content: comment 2
+  article: two
