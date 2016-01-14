@@ -34,12 +34,12 @@ class ArticlesControllerTest < ActionController::TestCase
 
   test "create should success and redirect to show" do
     assert_difference 'Article.count', 1 do
-      post :create, article: { title: 'test title', text: 'test text'}
+      post :create, article: { title: 'test title', content: 'test text'}
     end
   end
 
   test "update should success and redirect" do
-    patch :update, id: @one, article: { title: "patch title", text: "patch text"}
+    patch :update, id: @one, article: { title: "patch title", content: "patch text"}
     assert_redirected_to @one
   end
 

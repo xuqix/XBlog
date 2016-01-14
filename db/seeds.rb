@@ -12,7 +12,7 @@ count = 10
 
 count.times do |n|
   Article.create!(title: "i am the #{n+1}th article",
-                  text: "this is text for #{n+1}th article")
+                  content: "this is text for #{n+1}th article")
 end
 
 articles = Article.all.take(count/2)

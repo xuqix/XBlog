@@ -6,7 +6,7 @@ class ArticleTest < ActiveSupport::TestCase
   # end
 
   def setup
-    @temp = Article.new(title: 'title', text: 'text')
+    @temp = Article.new(title: 'title', content: 'text')
   end
 
   test "title should be present" do
@@ -15,7 +15,7 @@ class ArticleTest < ActiveSupport::TestCase
   end
 
   test "text should be present" do
-    @temp.text = '   '
+    @temp.content = '   '
     assert_not @temp.valid?
   end
 
@@ -25,7 +25,7 @@ class ArticleTest < ActiveSupport::TestCase
   end
 
   test "text should not too long" do
-    @temp.text = 'a' * 65536
+    @temp.content = 'a' * 65536
     assert_not @temp.valid?
   end
 end
