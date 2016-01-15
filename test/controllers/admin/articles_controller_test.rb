@@ -1,6 +1,6 @@
 require 'test_helper'
 
-class ArticlesControllerTest < ActionController::TestCase
+class Admin::ArticlesControllerTest < ActionController::TestCase
   # test "the truth" do
   #   assert true
   # end
@@ -40,13 +40,13 @@ class ArticlesControllerTest < ActionController::TestCase
 
   test "update should success and redirect" do
     patch :update, id: @one, article: { title: "patch title", content: "patch text"}
-    assert_redirected_to @one
+    assert_redirected_to [:admin, @one]
   end
 
   test "destroy should success and redirect to index" do
     assert_difference 'Article.count', -1 do
       delete :destroy, id: @one
     end
-    assert_redirected_to articles_path
+    assert_redirected_to admin_articles_path
   end
 end

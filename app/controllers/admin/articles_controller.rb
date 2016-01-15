@@ -1,4 +1,4 @@
-class ArticlesController < ApplicationController
+class Admin::ArticlesController < ApplicationController
   def index
     @articles = Article.all
   end
@@ -20,7 +20,7 @@ class ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
-      redirect_to @article
+      redirect_to [:admin, @article]
     else
       render 'new'
     end
@@ -29,7 +29,7 @@ class ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
-      redirect_to @article
+      redirect_to [:admin, @article]
     else
       render 'edit'
     end
@@ -39,7 +39,7 @@ class ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
 
-    redirect_to articles_path
+    redirect_to admin_articles_path
   end
 
   private

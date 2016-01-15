@@ -5,7 +5,7 @@
 <%= render @comments %>
 
 <h2>Add a comment:</h2>
-<%= form_for([@article, @article.comments.build]) do |f| %>
+<%= form_for([:admin, @article, @article.comments.build]) do |f| %>
   <p>
     <%= f.label :commenter %><br>
     <%= f.text_field :commenter %>
@@ -23,5 +23,5 @@
   </p>
 <% end %>
 
-<%= link_to 'Edit Article', edit_article_path(@article) %> |
-<%= link_to 'Back', articles_path %>
+<%= link_to 'Edit Article', edit_admin_article_path(@article) %> |
+<%= link_to 'Back', admin_articles_path %>

@@ -1,9 +1,9 @@
 <% if defined?(simple) && simple %>
 <table>
   <tr>
-    <td><%= link_to article.title, article_path(article) %> --- <%= article.content[0,20] %></td>
-    <td><%= link_to 'Edit', edit_article_path(article) %></td>
-    <td><%= link_to 'Destroy', article_path(article),
+    <td><%= link_to article.title, admin_article_path(article) %> --- <%= article.content[0,20] %></td>
+    <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
+    <td><%= link_to 'Destroy', admin_article_path(article),
     method: :delete, data: { confirm: 'Are you sure?' } %></td>
   </tr>
 </table>

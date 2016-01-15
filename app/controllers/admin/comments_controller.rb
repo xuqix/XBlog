@@ -1,18 +1,18 @@
-class CommentsController < ApplicationController
+class Admin::CommentsController < ApplicationController
   def create
     @cur_article = Article.find(params[:article_id])
     @comment = @cur_article.comments.build(comment_params)
     if @comment.save
     else
     end
-    redirect_to article_path(@cur_article)
+    redirect_to admin_article_path(@cur_article)
   end
 
   def destroy
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
     @comment.destroy
-    redirect_to article_path(@article)
+    redirect_to admin_article_path(@article)
   end
 
   private
