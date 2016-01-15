@@ -12,7 +12,8 @@ count = 10
 
 count.times do |n|
   Article.create!(title: "i am the #{n+1}th article",
-                  content: "this is text for #{n+1}th article")
+                  content: "this is text for #{n+1}th article",
+                  created_at: rand(2).year.ago)
 end
 
 articles = Article.all.take(count/2)
@@ -22,6 +23,8 @@ articles.each do |article|
     name = Faker::Name.name
     email = "example-#{i+1}@example.com"
     content = Faker::Lorem.sentence(5)
-    article.comments.create!(commenter: name, email: email, content: content)
+    time = rand(6000).minutes.ago
+    article.comments.create!(commenter: name, email: email, content: content,
+                             created_at: time)
   end
 end

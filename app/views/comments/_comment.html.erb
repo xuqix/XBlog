@@ -1,5 +1,6 @@
 <p><%= comment.commenter %> say:</p>
 <p><%= comment.content %></p>
 <p>contact me: <%= comment.email %></p>
+<p>created at: <%= format_time(comment.created_at) %></p>
 <%= link_to 'Del Comment', article_comment_path(@article, comment), method: :delete,
 data: { confirm: 'Are you sure?' } %>

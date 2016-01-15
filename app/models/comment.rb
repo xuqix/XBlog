@@ -9,6 +9,9 @@ end
 class Comment < ActiveRecord::Base
   belongs_to :article
 
+  # desc sort by created_at
+  default_scope -> { order(created_at: :desc) }
+
   validates :article_id, presence: true
   validates :commenter, presence: true, length: {maximum: 255}
   validates :content, presence: true, length: {maximum: 65535}
