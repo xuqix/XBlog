@@ -1,17 +1,22 @@
 class Admin::SessionsController < ApplicationController
   def new
+    if is_logged?
+      redirect_to admin_articles_path
+    end
   end
 
   def create
     if log_in(session_params)
+      flash[:success] = "Welcome to the XBlog, my master!"
       redirect_to admin_articles_path
     else
-      redirect_to new_admin_session_path
+      flash.now[:warning] = "Username or Password Error!"
+      render 'new'
     end
   end
 
   def destroy
-    log_out
+    log_out if is_logged?
     redirect_to new_admin_session_path
   end
 

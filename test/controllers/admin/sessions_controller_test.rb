@@ -11,7 +11,7 @@ class Admin::SessionsControllerTest < ActionController::TestCase
 
   test "should redirect to root when log error" do
     post :create, session: {username: 'abcdefg', password: '1234567'}
-    assert_redirected_to new_admin_session_path
+    assert_template 'sessions/new'
   end
 
   test "should redirect to articles when log success" do

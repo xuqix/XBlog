@@ -22,6 +22,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.new(article_params)
 
     if @article.save
+      flash[:success] = "Blog create success!"
       redirect_to [:admin, @article]
     else
       render 'new'
@@ -31,6 +32,7 @@ class Admin::ArticlesController < ApplicationController
   def update
     @article = Article.find(params[:id])
     if @article.update(article_params)
+      flash[:success] = "Blog update success!"
       redirect_to [:admin, @article]
     else
       render 'edit'
@@ -41,6 +43,7 @@ class Admin::ArticlesController < ApplicationController
     @article = Article.find(params[:id])
     @article.destroy
 
+    flash[:success] = "Blog delete success!"
     redirect_to admin_articles_path
   end
 
