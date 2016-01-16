@@ -2,24 +2,7 @@
 <%= render @article %>
 
 <h2>Add a comment:</h2>
-<%= form_for([:admin, @article, @article.comments.build]) do |f| %>
-  <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :content %>
-  </p>
-  <p>
-    <%= f.submit "comment it!" %>
-  </p>
-<% end %>
-
+<%= render 'admin/comments/form' %>
 <h2>Comments:</h2>
 <%= render @comments %>
 

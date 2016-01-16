@@ -1,15 +1,5 @@
-<%= form_for :article, url: admin_articles_path do |f| %>
-<p>
-  <%= f.label :title %><br>
-  <%= f.text_field :title %>
-</p>
-<p>
-  <%= f.label :text %><br>
-  <%= f.text_area :content %>
-</p>
-<p>
-  <%= f.submit "create article" %>
-</p>
-<% end %>
+<h1>New Article</h1>
+
+<%= render 'form', text: "create article" %>
 
 <%= link_to 'Back', admin_articles_path %>

@@ -2,13 +2,15 @@ class Admin::CommentsController < ApplicationController
   before_action :authenticate!
 
   def create
-    @cur_article = Article.find(params[:article_id])
-    @comment = @cur_article.comments.build(comment_params)
+    @article = Article.find(params[:article_id])
+    @comment = @article.comments.build(comment_params)
     if @comment.save
       flash[:success] = "Comment blog success!"
+    redirect_to admin_article_path(@article)
     else
+      @comments = @article.comments
+      render 'admin/articles/show'
     end
-    redirect_to admin_article_path(@cur_article)
   end
 
   def destroy
