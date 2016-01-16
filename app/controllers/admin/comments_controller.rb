@@ -1,4 +1,6 @@
 class Admin::CommentsController < ApplicationController
+  before_action :authenticate!
+
   def create
     @cur_article = Article.find(params[:article_id])
     @comment = @cur_article.comments.build(comment_params)

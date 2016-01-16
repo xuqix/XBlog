@@ -5,6 +5,8 @@ class ApplicationController < ActionController::Base
 
   helper_method :format_time
 
+  include Admin::SessionsHelper
+
   def format_time(time)
     time.localtime.strftime("%Y-%m-%d %H:%M")
   end

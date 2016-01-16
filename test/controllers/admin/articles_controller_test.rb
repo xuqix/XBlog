@@ -6,6 +6,7 @@ class Admin::ArticlesControllerTest < ActionController::TestCase
   # end
 
   def setup
+    log_in_as_admin
     @one = articles(:one)
     @two = articles(:two)
   end

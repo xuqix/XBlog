@@ -5,6 +5,7 @@ class Admin::CommentsControllerTest < ActionController::TestCase
   #   assert true
   # end
   def setup
+    log_in_as_admin
     @one = comments(:one)
   end
 
