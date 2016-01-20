@@ -1,0 +1,6 @@
+<% if comment.valid? %>
+<p><%= comment.commenter %> say:</p>
+<p><%= comment.content %></p>
+<p>contact me: <%= comment.email %></p>
+<p>created at: <%= format_time(comment.created_at) %></p>
+<% end %>
