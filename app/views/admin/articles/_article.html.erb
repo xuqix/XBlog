@@ -1,0 +1,25 @@
+<% if defined?(simple) && simple %>
+<table>
+  <tr>
+    <td><%= link_to article.title, admin_article_path(article) %> --- <%= article.content[0,20] %></td>
+    <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
+    <td><%= link_to 'Destroy', admin_article_path(article),
+    method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  </tr>
+</table>
+<% else %>
+
+<p>
+  <strong>Title:</strong>
+  <%= article.title %>
+</p>
+
+<p>
+  <strong>Content:</strong>
+  <%= article.content %>
+</p>
+
+<p> publish at: <%= format_time(article.created_at) %> </p>
+<p> last edit at: <%= format_time(article.updated_at) %> </p>
+
+<% end %>

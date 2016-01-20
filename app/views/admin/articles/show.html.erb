@@ -1,0 +1,10 @@
+<h2>Article:</h2>
+<%= render @article %>
+
+<h2>Add a comment:</h2>
+<%= render 'admin/comments/form' %>
+<h2>Comments:</h2>
+<%= render @comments %>
+
+<%= link_to 'Edit Article', edit_admin_article_path(@article) %> |
+<%= link_to 'Back', admin_articles_path %>

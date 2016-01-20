@@ -1,0 +1,5 @@
+<h1>Archives#index</h1>
+
+<% @articles.each do |article| %>
+<%= render 'article', simple: true, article: article %>
+<% end %>
