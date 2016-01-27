@@ -5,6 +5,7 @@ class ApplicationController < ActionController::Base
 
   helper_method :format_time
 
+  include ApplicationHelper
   include Admin::SessionsHelper
 
   def format_time(time)

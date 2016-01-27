@@ -1,10 +1,12 @@
-<div class="text-center">
-<%= render 'archives/article', article: @article %>
+<div class="text-left">
+  <div class="content">
+    <%= render 'archives/article', article: @article %>
 
-<h3>添加评论:</h3>
-<%= render 'comments/form' %>
-<h3>精彩评论:</h3>
-<%= render @comments %>
+    <h3>添加评论:</h3>
+    <%= render 'comments/form' %>
+    <h3>精彩评论:</h3>
+    <%= render @comments %>
+  </div>
 
-<div class="text-right"><%= link_to 'Back', archives_path %></div>
+  <div class="text-right"><%= link_to 'Back', archives_path %></div>
 </div>
