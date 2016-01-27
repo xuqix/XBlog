@@ -1,5 +1,19 @@
-<h1>Archives#index</h1>
-
-<% @articles.each do |article| %>
-<%= render 'article', simple: true, article: article %>
-<% end %>
+<div class="text-left" id="content">
+  <ul class="table table-hover archives-field">
+    <% @articles.each do |article| %>
+    <!-- <%= render 'article', simple: true, article: article %> -->
+    <li>
+      <h3><%= link_to article.title, archive_path(article), class: "archive-title" %></h3>
+      <p>
+        <div class="archive-label" align="right">
+          <span class="glyphicon glyphicon-calendar"></span>
+          <%= format_time(article.created_at) %>
+          &nbsp;&nbsp;&nbsp;&nbsp;
+          <span class="glyphicon glyphicon-comment"></span>
+          <%= article.comments.size %>
+        </div>
+      </p>
+    </li>
+    <% end %>
+  </ul>
+</div>

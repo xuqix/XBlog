@@ -2,19 +2,9 @@
 
 <%= form_for object, url: archive_comments_path(@article) do |f| %>
   <%= render 'shared/error_messages', object: object %>
-  <p>
-    <%= f.label :commenter %><br>
-    <%= f.text_field :commenter %>
-  </p>
-  <p>
-    <%= f.label :email %><br>
-    <%= f.text_field :email %>
-  </p>
-  <p>
-    <%= f.label :body %><br>
-    <%= f.text_area :content %>
-  </p>
-  <p>
-    <%= f.submit defined?(text)? text : "comment it!" %>
-  </p>
+
+  <p><%= f.text_field :commenter, placeholder: "昵称", class: "input-large" %></p>
+  <p><%= f.text_field :email, placeholder: "邮箱" %></p>
+  <p><%= f.text_area :content, placeholder: "发表你的评论...", rows: 3 %></p>
+  <p><%= f.submit (defined?(text)? text : "提交"), class: "btn btn-large btn-primary" %></p>
 <% end %>

@@ -1,6 +1,13 @@
 <% if comment.valid? %>
-<p><%= comment.commenter %> say:</p>
 <p><%= comment.content %></p>
-<p>contact me: <%= comment.email %></p>
-<p>created at: <%= format_time(comment.created_at) %></p>
+<div class="text-info text-right">
+  <small>
+    <%= format_time(comment.created_at) %>
+    by
+    <%= comment.commenter %>
+  </small>
+  <% if not comment.email.empty? %>
+    <p>联系我: <a href="mailto:#"><%=comment.email%></a></p>
+  <% end %>
+</div>
 <% end %>

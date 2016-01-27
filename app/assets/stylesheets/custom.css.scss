@@ -1,0 +1,67 @@
+@import "bootstrap";
+@import "bootstrap-sprockets";
+
+div#content {
+  padding-left: 20%;
+  padding-right: 20%;
+}
+
+.archives-field li {
+  list-style: outside none none;
+  color: #666;
+  border-bottom: 1px dashed #CCC;
+  margin-bottom: 1rem;
+}
+
+.archive-title {
+  padding: 0.5rem 0px;
+  color: #0E0E0E;
+  font-size: 25px
+}
+
+a.archive-title {
+  &:hover {
+    color: #C00000;
+  }
+}
+a:hover { text-decoration:none; }
+
+.archive-label {
+}
+
+.title-nav {
+  a {
+    font-weight: bold;
+    color: #FFFFFF;
+    &:hover { color: #FFFFFF; }
+  }
+}
+
+.left-small {
+    width: 2.8125rem;
+    height: 2.8125rem;
+    position: absolute;
+    top: 0px;
+    border-right: 1px solid #1A1A1A;
+    left: 0px;
+}
+
+#menu-toggle {
+  width: 200;
+  height: 200;
+  color: #EEEEEE
+}
+
+span.glyphicon-list {
+    font-size: 1.7em;
+}
+
+.navbar {
+  min-height: -40px;
+}
+.nav > li > a {
+  padding: 8px -15px;
+}
+.navbar-brand {
+  padding: 8px -15px;
+}

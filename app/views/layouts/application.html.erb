@@ -4,17 +4,33 @@
   <title>Xblog</title>
   <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
   <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <!-- Custom CSS -->
+  <link href="css/simple-sidebar.css" rel="stylesheet">
   <%= csrf_meta_tags %>
+  <%= render 'layouts/shim' %>
 </head>
 <body>
+  <div id="wrapper">
 
-<%= render 'layouts/header' %>
-<% flash.each do |message_type, message| %>
-  <div class="alert alert-<%= message_type %>"><%= message %></div>
-<% end %>
-<%= yield %>
-<%= render 'layouts/footer' %>
-<%= debug(params) if Rails.env.development? %>
+    <div id="sidebar-wrapper">
+      <ul class="sidebar-nav">
+        <li class="sidebar-brand"><a href="">XBlog</a></li>
+        <li><%= link_to "主页", root_path %></li>
+        <li><%= link_to "关于我", '#' %></li>
+      </ul>
+    </div>
 
+    <!-- content -->
+    <%= render 'layouts/header' %>
+    <div class="container">
+      <% flash.each do |message_type, message| %>
+      <div class="alert alert-<%= message_type %>"><%= message %></div>
+      <% end %>
+      <%= yield %>
+      <%= render 'layouts/footer' %>
+      <%= debug(params) if Rails.env.development? %>
+    </div>
+
+  </div>
 </body>
 </html>

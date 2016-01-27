@@ -1,5 +1,5 @@
 <% if defined?(simple) && simple %>
-<table>
+<table class="table">
   <tr>
     <td><%= link_to article.title, admin_article_path(article) %> --- <%= article.content[0,20] %></td>
     <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>

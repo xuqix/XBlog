@@ -1,2 +1,26 @@
-<header>
+<header class="navbar navbar-fixed-left navbar-inverse nav-stacked">
+  <div class="container">
+    <nav class="tab-bar">
+      <h3 class="text-center title-nav"><%= link_to "XBLOG", root_path, id: "title-nav" %></h3>
+      <ul class="nav navbar-nav navbar-right">
+        <section class="left-small">
+          <a href="#menu-toggle" class="btn btn-lg" id="menu-toggle">
+            <span class="glyphicon glyphicon-list"></span>
+          </a>
+        </section>
+    </ul>
+    </nav>
+  </div>
 </header>
+
+<script>
+$(document).ready(function(){});
+$("#menu-toggle").click(function(e) {
+  e.preventDefault();
+  $("#wrapper").toggleClass("toggled");
+});
+
+$("a,input,button").focus(function(){
+  this.blur()
+});
+</script>

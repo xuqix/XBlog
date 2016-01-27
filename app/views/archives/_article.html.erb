@@ -1,22 +1,13 @@
 <% if defined?(simple) && simple %>
-<table>
-  <tr>
-    <td><%= link_to article.title, archive_path(article) %> --- <%= article.content[0,20] %></td>
-  </tr>
-</table>
+<p><%= link_to article.title, archive_path(article) %> --- <%= article.content[0,20] %></p>
 <% else %>
-
-<p>
-  <strong>Title:</strong>
-  <%= article.title %>
-</p>
-
+<h1><%= article.title %></h1><br>
 <p>
   <strong>Content:</strong>
   <%= article.content %>
 </p>
-
-<p> publish at: <%= format_time(article.created_at) %> </p>
-<p> last edit at: <%= format_time(article.updated_at) %> </p>
-
+<div class="text-info">
+<p> 发布时间: <%= format_time(article.created_at) %> </p>
+<p> 最后编辑: <%= format_time(article.updated_at) %> </p>
+</div>
 <% end %>
