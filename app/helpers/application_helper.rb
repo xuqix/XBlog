@@ -13,8 +13,8 @@ module ApplicationHelper
   end
 
   class HTMLwithCodeRay < Redcarpet::Render::HTML
-    def syntax_matcher
-      [ {
+    SyntaxMatcher = [
+      {
         :matcher => [
           /(char[\s]+\w+?;)|(short[\s]+\w+?;)|(int[\s]+\w+?;)|(long[\s]+\w+?;)|(float[\s]+\w+?;)|(double[\s]+\w+?;)/,
           /for[\s]+\([\s\S]*?\)/,
@@ -50,15 +50,11 @@ module ApplicationHelper
         :format => :python
       },
     ]
-    end
 
     def code_type(text)
-      syntax_matcher.each do |o|
+      HTMLwithCodeRay::SyntaxMatcher.each do |o|
         o[:matcher].each do |m|
-          if m =~ text
-            p m
-            return o[:format]
-          end
+          return o[:format] if m =~ text
         end
       end
       return :text

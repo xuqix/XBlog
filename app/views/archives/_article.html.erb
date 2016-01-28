@@ -4,11 +4,13 @@
 <div class="article-title">
   <h1 align="center"><%= article.title %></h1><br>
 </div>
-<p>
-  <%= markdown(article.content) %>
-</p>
+<div class="article-content">
+  <%= markdown(article.content) %><br><br>
 <div class="text-info">
-<p> 发布时间: <%= format_time(article.created_at) %> </p>
-<p> 最后编辑: <%= format_time(article.updated_at) %> </p>
+<p align="right">
+  发布时间: <%= format_time(article.created_at) %>&nbsp;&nbsp;&nbsp;&nbsp;
+  最后编辑: <%= format_time(article.updated_at) %>
+</p>
+</div>
 </div>
 <% end %>

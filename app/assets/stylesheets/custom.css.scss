@@ -7,14 +7,20 @@ div#index {
 }
 
 div.content {
-  padding-left: 20%;
-  padding-right: 20%;
+  padding-left: 15%;
+  padding-right: 15%;
 }
 
 div.article-title {
   border-bottom: 1px solid #DDDDDD;
   padding-bottom: 0.2rem;
   margin-bottom: 1rem;
+}
+
+.article-content {
+  border-bottom: 1px solid #DDDDDD;
+  padding-bottom: 0.2rem;
+  margin-bottom: 4rem;
 }
 
 .archives-field li {
