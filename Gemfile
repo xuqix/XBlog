@@ -21,6 +21,10 @@ gem 'bootstrap-sass'
 gem 'redcarpet'
 gem 'coderay'
 
+# paginate
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
 # Use jquery as the JavaScript library
 gem 'jquery-rails'
 # Turbolinks makes following links in your web application faster. Read more: https://github.com/rails/turbolinks
@@ -55,4 +59,3 @@ end
 group :test do
     gem 'minitest-reporters'
 end
-

@@ -1,7 +1,7 @@
 <div class="text-left" id="index">
+
   <ul class="table table-hover archives-field">
     <% @articles.each do |article| %>
-    <!-- <%= render 'article', simple: true, article: article %> -->
     <li>
       <h3><%= link_to article.title, archive_path(article), class: "archive-title" %></h3>
       <p>
@@ -16,4 +16,8 @@
     </li>
     <% end %>
   </ul>
+
+  <div align="center">
+    <%= will_paginate @articles %>
+  </div>
 </div>
