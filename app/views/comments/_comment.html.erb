@@ -1,13 +1,23 @@
 <% if comment.valid? %>
-<p><%= comment.content %></p>
-<div class="text-info text-right">
-  <small>
-    <%= format_time(comment.created_at) %>
-    by
-    <%= comment.commenter %>
-  </small>
-  <% if not comment.email.empty? %>
-    <p>联系我: <a href="mailto:#"><%=comment.email%></a></p>
-  <% end %>
+
+<div class="comment">
+  <div class="comment-content">
+    <p><%= comment.content %></p>
+  </div>
+  <div class="text-info text-right">
+    <div class="comment-info">
+      <small>
+        <%= format_time(comment.created_at) %>
+        by
+        <%= comment.commenter %>
+      </small>
+    </div>
+    <% if not comment.email.empty? %>
+    <div class="comment-email">
+      <p>联系我: <a href="mailto:#"><%=comment.email%></a></p>
+    </div>
+    <% end %>
+  </div>
 </div>
+
 <% end %>

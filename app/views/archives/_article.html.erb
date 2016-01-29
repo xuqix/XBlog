@@ -5,7 +5,8 @@
   <h1 align="center"><%= article.title %></h1><br>
 </div>
 <div class="article-content">
-  <%= markdown(article.content) %><br><br>
+  <%= markdown(article.content) %>
+  <br><br><br><br>
 <div class="text-info">
 <p align="right">
   发布时间: <%= format_time(article.created_at) %>&nbsp;&nbsp;&nbsp;&nbsp;

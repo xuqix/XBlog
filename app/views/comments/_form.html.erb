@@ -1,10 +1,83 @@
 <% object = (defined?(@comment) ? @comment : @article.comments.build) %>
 
-<%= form_for object, url: archive_comments_path(@article) do |f| %>
+<div id="add-comment">
+<%= form_for object, url: archive_comments_path(@article),
+    html: {onsubmit: "return validate_form(this);"} do |f| %>
   <%= render 'shared/error_messages', object: object %>
 
-  <p><%= f.text_field :commenter, placeholder: "昵称", class: "input-large" %></p>
-  <p><%= f.text_field :email, placeholder: "邮箱" %></p>
-  <p><%= f.text_area :content, placeholder: "发表你的评论...", rows: 3 %></p>
-  <p><%= f.submit (defined?(text)? text : "提交"), class: "btn btn-large btn-primary" %></p>
+  <p><%= f.text_field :commenter, placeholder: "昵称", id: "commenter"  %></p>
+  <p><%= f.text_field :email, placeholder: "邮箱", id: "email" %></p>
+  <p><%= f.text_area :content, placeholder: "发表你的评论...", rows: 5, id: "content" %></p>
+  <p><%= f.submit (defined?(text)? text : "评论"), class: "btn btn-large btn-primary",
+  id: "commit" %></p>
 <% end %>
+<br>
+</div>
+
+<script>
+function validate_name(field, defaultText) {
+  with (field) {
+    if(value.length <= 0) {
+      alert("昵称不能为空！");
+      return false;
+    }
+    else if(value.length > 64) {
+      alert("昵称过长！");
+      return false;
+    }
+  }
+  return true;
+}
+
+function validate_email(field, defaultText) {
+  with (field) {
+    if(value.length <= 0) return true;
+    apos=value.indexOf("@")
+    dotpos=value.lastIndexOf(".")
+    if (apos<1||dotpos-apos<2) {
+      alert(defaultText);
+      return false;
+    }
+    else {
+      return true;
+    }
+  }
+  return true;
+}
+
+function validate_content(field, defaultText) {
+  with (field) {
+    if(value.length < 5) {
+      alert("评论不能少于五字！");
+      return false;
+    }
+    else if(value.length > 65535) {
+      alert("评论太长！");
+      return false;
+    }
+  }
+  return true;
+}
+
+function validate_form(form) {
+  with (form) {
+    if (validate_name(form["comment[commenter]"], "不是一个有效的昵称！") == false) {
+      form["comment[commenter]"].focus();
+      return false
+    }
+
+    var email = this["comment[email]"];
+    if (validate_email(email, "不是一个有效的电子邮件地址！") == false) {
+      email.focus();
+      return false
+    }
+
+    var content = this["comment[content]"];
+    if (validate_content(content, "不是一个有效的评论!") == false) {
+      content.focus();
+      return false
+    }
+  }
+  return true;
+}
+</script>

@@ -6,6 +6,23 @@ div#index {
   padding-right: 20%;
 }
 
+div#add-comment {
+  border-bottom: 1px solid #DDDDDD;
+  #commenter {
+    width: 50%;
+  }
+  #email {
+    width: 50%;
+  }
+  #content {
+    width: 75%
+  }
+  #commit {
+    width: 75%
+  }
+  padding-right: 10%;
+}
+
 div.content {
   padding-left: 15%;
   padding-right: 15%;
@@ -81,4 +98,52 @@ span.glyphicon-list {
 }
 .navbar-brand {
   padding: 8px -15px;
+}
+
+.text-info {
+  font-style: italic;
+}
+
+div.comment {
+  border-bottom: 1px dashed #CCC;
+  padding-bottom: 0.2rem;
+  margin-bottom: 2rem;
+
+  .comment-info {
+  }
+  .comment-email {
+  }
+  .comment-content {
+    padding: 1rem 2rem 1rem 2rem;
+  }
+}
+
+div.sep {
+  border-bottom: 1px solid #DDDDDD;
+  padding-bottom: 0.2rem;
+}
+
+footer {
+  padding-top: 5px;
+  border-top: 1px solid #eaeaea;
+  color: $gray-light;
+  a {
+    color: $gray;
+    &:hover {
+      color: #000000;
+    }
+  }
+  small {
+    float: left;
+  }
+  ul {
+    float: right;
+    list-style: none;
+    li {
+      margin-left: 15px;
+    }
+  }
+}
+
+div.error-message {
 }
