@@ -8,12 +8,14 @@
 
 #articles:
 
-count = 10
+count = 100
 
 count.times do |n|
-  Article.create!(title: "i am the #{n+1}th article",
-                  content: "this is text for #{n+1}th article",
-                  created_at: rand(2).year.ago)
+  title = Faker::Lorem.sentence(1)
+  content = Faker::Lorem.sentence(500)
+  Article.create!(title: title,
+                  content: content,
+                  created_at: rand(24).month.ago)
 end
 
 articles = Article.all.take(count/2)
