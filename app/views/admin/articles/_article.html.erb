@@ -1,25 +1,40 @@
 <% if defined?(simple) && simple %>
-<table class="table">
-  <tr>
-    <td><%= link_to article.title, admin_article_path(article) %> --- <%= article.content[0,20] %></td>
-    <td><%= link_to 'Edit', edit_admin_article_path(article) %></td>
-    <td><%= link_to 'Destroy', admin_article_path(article),
-    method: :delete, data: { confirm: 'Are you sure?' } %></td>
-  </tr>
-</table>
+<div class="sep">
+  <h3><%= link_to article.title, admin_article_path(article), class: "archive-title" %></h3>
+  <p>
+    <div class="archive-label" align="right">
+      <span class="glyphicon glyphicon-calendar"></span>
+      <%= format_time(article.created_at) %>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <span class="glyphicon glyphicon-comment"></span>
+      <%= article.comments.size %>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <span class="glyphicon glyphicon-edit"></span>
+      <%= link_to 'Edit', edit_admin_article_path(article) %>
+      &nbsp;&nbsp;&nbsp;&nbsp;
+      <span class="glyphicon glyphicon-trash"></span>
+      <%= link_to 'Destroy', admin_article_path(article),
+      method: :delete, data: { confirm: '确定要删除这篇博客吗?' } %>
+    </div>
+  </p>
+</div>
 <% else %>
 
-<p>
-  <strong>Title:</strong>
-  <%= article.title %>
-</p>
-
-<p>
-  <strong>Content:</strong>
-  <%= article.content %>
-</p>
-
-<p> publish at: <%= format_time(article.created_at) %> </p>
-<p> last edit at: <%= format_time(article.updated_at) %> </p>
+<div class="article-title">
+  <h1 align="center"><%= article.title %></h1><br>
+</div>
+<div class="article-content">
+  <%= markdown(article.content) %>
+  <br><br><br><br>
+  <div class="text-info">
+    <p align="right">
+      发布时间: <%= format_time(article.created_at) %>&nbsp;&nbsp;&nbsp;&nbsp;
+      最后编辑: <%= format_time(article.updated_at) %>
+    </p>
+    <div align="right">
+      <%= link_to '编辑博客', edit_admin_article_path(@article) %> |
+    </div>
+  </div>
+</div>
 
 <% end %>

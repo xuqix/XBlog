@@ -1,6 +1,14 @@
-<h1>Articles List</h1>
+<div class="text-left" id="index">
+  <div class="text-center create-article">
+    <a href="<%= new_admin_article_path %>" >
+      <input name="commit" value="创建新博客！" class="btn btn-large btn-primary" id="commit" type="button">
+    </a>
+  </div>
+  <%= render @articles, simple: true %>
 
-<%= render @articles, simple: true %>
+</div>
 
-<%= link_to 'New Article', new_admin_article_path %>
-<%= link_to 'Log Out', admin_session_path(1), method: :delete, data: { confirm: 'Are you sure?' } %>
+<div align="right">
+  <%= link_to '退出登录', admin_session_path(1), method: :delete, data: { confirm: 'Are you sure?' } %>
+  <span class="glyphicon glyphicon-log-out"></span>
+</div>

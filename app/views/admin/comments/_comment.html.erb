@@ -1,8 +1,23 @@
 <% if comment.valid? %>
-<p><%= comment.commenter %> say:</p>
-<p><%= comment.content %></p>
-<p>contact me: <%= comment.email %></p>
-<p>created at: <%= format_time(comment.created_at) %></p>
-<%= link_to 'Del Comment', admin_article_comment_path(@article, comment), method: :delete,
-data: { confirm: 'Are you sure?' } %>
+<div class="comment">
+  <div class="comment-content">
+    <p><%= comment.content %></p>
+  </div>
+  <div class="text-info text-right">
+    <div class="comment-info">
+      <small>
+        <%= format_time(comment.created_at) %>
+        by
+        <%= comment.commenter %>
+      </small>
+    </div>
+    <% if not comment.email.empty? %>
+    <div class="comment-email">
+      <p>联系我: <a href="mailto:#"><%=comment.email%></a></p>
+    </div>
+    <% end %>
+    <%= link_to '删除评论', admin_article_comment_path(@article, comment), method: :delete,
+    data: { confirm: '确定要删除评论?' } %>
+  </div>
+</div>
 <% end %>

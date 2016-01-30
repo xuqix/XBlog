@@ -5,7 +5,7 @@ class Admin::CommentsController < ApplicationController
     @article = Article.find(params[:article_id])
     @comment = @article.comments.build(comment_params)
     if @comment.save
-      flash[:success] = "Comment blog success!"
+      flash[:success] = "评论博客成功!"
     redirect_to admin_article_path(@article)
     else
       @comments = @article.comments
@@ -16,7 +16,7 @@ class Admin::CommentsController < ApplicationController
   def destroy
     @article = Article.find(params[:article_id])
     @comment = @article.comments.find(params[:id])
-    flash[:success] = "Delete comment success!"
+    flash[:success] = "删除评论成功!"
     @comment.destroy
     redirect_to admin_article_path(@article)
   end

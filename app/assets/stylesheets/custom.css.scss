@@ -145,12 +145,37 @@ footer {
   }
 }
 
-div.error-message {
-}
+div.error-message { }
 
 .active {
   background: yellow;
+}
 
+.create-article {
+  padding: 0.5rem 0px;
+  color: #0E0E0E;
+  font-size: 25px;
+  #commit {
+    width: 100%
+  }
+}
+
+.session {
+  padding-left: 30%;
+  padding-right: 30%;
+  padding-top: 5%;
+  padding-bottom: 10%;
+  #username {
+    width: 50%;
+    height: 40px
+  }
+  #password {
+    width: 50%;
+    height: 40px
+  }
+  #button {
+    width: 50%;
+  }
 }
 
 .pagination {

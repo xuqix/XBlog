@@ -10,7 +10,7 @@ class Admin::SessionsController < ApplicationController
       flash[:success] = "Welcome to the XBlog, my master!"
       redirect_to admin_articles_path
     else
-      flash.now[:warning] = "Username or Password Error!"
+      flash.now[:warning] = "用户名或密码错误!"
       render 'new'
     end
   end

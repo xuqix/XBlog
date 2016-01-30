@@ -1,13 +1,17 @@
-<%= form_for :session, url: admin_sessions_path do |f| %>
-<p>
-  <%= f.label :username %><br>
-  <%= f.text_field :username %>
-</p>
-<p>
-  <%= f.label :password %><br>
-  <%= f.password_field :password %>
-</p>
-<p>
-  <%= f.submit "login as admin" %>
-</p>
-<% end %>
+<div class="sep"> <h1>登录后台</h1> </div>
+<div class="session" align="left">
+  <%= form_for :session, url: admin_sessions_path do |f| %>
+  <p>
+    <%= f.label "用户名" %><br>
+    <%= f.text_field :username, placeholder: "管理员账户", id: "username" %>
+  </p>
+  <p>
+    <%= f.label "密码" %><br>
+    <%= f.password_field :password, placeholder: "管理员密码", id: "password" %>
+  </p>
+  <br>
+  <p>
+    <%= f.submit "管理员登录", class: "btn btn-default btn-primary", id: "button" %>
+  </p>
+  <% end %>
+</div>
