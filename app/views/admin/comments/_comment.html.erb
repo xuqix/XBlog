@@ -1,7 +1,7 @@
 <% if comment.valid? %>
 <div class="comment">
   <div class="comment-content">
-    <p><%= comment.content %></p>
+    <p><%= comment.content.html_safe %></p>
   </div>
   <div class="text-info text-right">
     <div class="comment-info">
